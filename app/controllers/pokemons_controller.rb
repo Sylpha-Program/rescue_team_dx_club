@@ -35,7 +35,7 @@ class PokemonsController < ApplicationController
   def update
     @types = Type.order(id: :asc)
     @qualities = Quality.order(id: :asc)
-    if @pokemon.save
+    if @pokemon.update(pokemon_params)
       flash[:success] = '更新しました。'
       redirect_to root_url
     else
