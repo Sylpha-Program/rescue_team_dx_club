@@ -1,0 +1,67 @@
+<div class="text-center">
+  <h1><%= @pokemon.name %></h1>
+</div>
+<div class="row my-5">
+  <div class="offset-sm-3 col-sm-6">
+    <%= form_with(model: @pokemon, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :number, '図鑑番号' %>
+        <%= f.number_field :number, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :type_1, 'タイプ１' %>
+        <%= f.collection_select :type_1_id, @types, :id, :name, {value: @pokemon.type_1}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :type_1, 'タイプ２' %>
+        <%= f.collection_select :type_2_id, @types, :id, :name, {value: @pokemon.type_2}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :ability, '特性' %>
+        <%= f.text_field :ability, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :quality, 'すごわざ' %>
+        <%= f.collection_select :quality_id, @qualities, :id, :name, {value: @pokemon.quality}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_1_name, 'わざ１' %>
+        <%= f.text_field :move_1_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_1_type, 'わざ１のタイプ' %>
+        <%= f.collection_select :move_1_type_id, @types, :id, :name, {value: @pokemon.move_1_type}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_2_name, 'わざ２' %>
+        <%= f.text_field :move_2_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_2_type, 'わざ２のタイプ' %>
+        <%= f.collection_select :move_2_type_id, @types, :id, :name, {value: @pokemon.move_2_type}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_3_name, 'わざ３' %>
+        <%= f.text_field :move_3_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_3_type, 'わざ３のタイプ' %>
+        <%= f.collection_select :move_3_type_id, @types, :id, :name, {value: @pokemon.move_3_type}, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_4_name, 'わざ４' %>
+        <%= f.text_field :move_4_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :move_4_type, 'わざ４のタイプ' %>
+        <%= f.collection_select :move_4_type_id, @types, :id, :name, {value: @pokemon.move_4_type}, class: 'form-control' %>
+      </div>
+      <%= f.submit '登録する', class: 'btn btn-primary btn-block mt-5' %>
+    <% end %>
+  </div>
+</div>

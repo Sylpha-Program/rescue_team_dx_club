@@ -1,0 +1,41 @@
+<div class="text-center mb-5">
+  <h1>ポケモン一覧</h1>
+  <p class="mt-5"><%= link_to '新規登録', "/pokemons/new", class: 'btn btn-lg btn-primary' %></p>
+  <div class="row mt-5">
+    <% @pokemons.each do |pokemon| %>
+      <div style="height: 300px" class="offset-xl-0 col-xl-6 offset-lg-2 col-lg-8 offset-md-1 col-md-10 offset- border pt-5 pb-3">
+        <p>
+          <%= link_to pokemon.name, edit_pokemon_path(pokemon), class: 'font-weight-bold h4 mr-3' %>
+          <% if pokemon.type_1 %>
+            <img class="rounded" src=<%= "/types/#{pokemon.type_1.image}" %> alt="Type" width="40px" height="40px">
+          <% end %>
+          <% if pokemon.type_2 %>
+            <img class="rounded" src=<%= "/types/#{pokemon.type_2.image}" %> alt="Type" width="40px" height="40px">
+          <% end %>
+        </p>
+        <table class="table table-bordered border-light table-border-3">
+          <tr>
+            <th style="width: 50%"><%= pokemon.ability %></th>
+            <th style="width: 50%"><%= pokemon.quality.name %></th>
+          </tr>
+          <tr style="color: whitesmoke; text-shadow: 1px  1px 0px #000, -1px  1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 1px  0px 1px #000, 0px  1px 1px #000, -1px  0px 1px #000, 0px -1px 1px #000">
+            <% if pokemon.move_1_type %>
+              <td bgcolor="<%= Type.find_by(id: pokemon.move_1_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_1_name %></span></td>
+            <% end %>
+            <% if pokemon.move_2_type %>
+              <td bgcolor="<%= Type.find_by(id: pokemon.move_2_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_2_name %></span></td>
+            <% end %>
+          </tr>
+          <tr style="color: whitesmoke; text-shadow: 1px  1px 0px #000, -1px  1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 1px  0px 1px #000, 0px  1px 1px #000, -1px  0px 1px #000, 0px -1px 1px #000">
+            <% if pokemon.move_3_type %>
+              <td bgcolor="<%= Type.find_by(id: pokemon.move_3_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_3_name %></span></td>
+            <% end %>
+            <% if pokemon.move_4_type %>
+              <td bgcolor="<%= Type.find_by(id: pokemon.move_4_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_4_name %></span></td>
+            <% end %>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>
