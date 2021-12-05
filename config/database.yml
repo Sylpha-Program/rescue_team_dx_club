@@ -16,6 +16,9 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: pokemon_dungeon_dx_club_production
   username: pokemon_dungeon_dx_club
   password: <%= ENV['POKEMON_DUNGEON_DX_CLUB_DATABASE_PASSWORD'] %>
