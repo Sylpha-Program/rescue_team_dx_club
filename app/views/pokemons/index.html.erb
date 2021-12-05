@@ -13,25 +13,25 @@
             <img class="rounded" src=<%= "/types/#{pokemon.type_2.image}" %> alt="Type" width="40px" height="40px">
           <% end %>
         </p>
-        <table class="table table-bordered border-light table-border-3">
+        <table class="table table-borderless">
           <tr>
             <th style="width: 50%"><%= pokemon.ability %></th>
             <th style="width: 50%"><%= pokemon.quality.name %></th>
           </tr>
           <tr style="color: whitesmoke; text-shadow: 1px  1px 0px #000, -1px  1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 1px  0px 1px #000, 0px  1px 1px #000, -1px  0px 1px #000, 0px -1px 1px #000">
             <% if pokemon.move_1_type %>
-              <td bgcolor="<%= Type.find_by(id: pokemon.move_1_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_1_name %></span></td>
+              <td style="border: 1px solid black" bgcolor="<%= Type.find_by(id: pokemon.move_1_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_1_name %></span></td>
             <% end %>
             <% if pokemon.move_2_type %>
-              <td bgcolor="<%= Type.find_by(id: pokemon.move_2_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_2_name %></span></td>
+              <td style="border: 1px solid black" bgcolor="<%= Type.find_by(id: pokemon.move_2_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_2_name %></span></td>
             <% end %>
           </tr>
           <tr style="color: whitesmoke; text-shadow: 1px  1px 0px #000, -1px  1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000, 1px  0px 1px #000, 0px  1px 1px #000, -1px  0px 1px #000, 0px -1px 1px #000">
             <% if pokemon.move_3_type %>
-              <td bgcolor="<%= Type.find_by(id: pokemon.move_3_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_3_name %></span></td>
+              <td style="border: 1px solid black" bgcolor="<%= Type.find_by(id: pokemon.move_3_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_3_name %></span></td>
             <% end %>
             <% if pokemon.move_4_type %>
-              <td bgcolor="<%= Type.find_by(id: pokemon.move_4_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_4_name %></span></td>
+              <td style="border: 1px solid black" bgcolor="<%= Type.find_by(id: pokemon.move_4_type_id).color %>"><span class="font-weight-bold"><%= pokemon.move_4_name %></span></td>
             <% end %>
           </tr>
         </table>
