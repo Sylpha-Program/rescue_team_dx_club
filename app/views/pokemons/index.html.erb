@@ -5,6 +5,7 @@
     <% @pokemons.each do |pokemon| %>
       <div style="height: 300px" class="offset-xl-0 col-xl-6 offset-lg-2 col-lg-8 offset-md-1 col-md-10 offset- border pt-5 pb-3">
         <p>
+          <span class="mr-3 font-weight-bold h4">No.<%= pokemon.number %></span>
           <%= link_to pokemon.name, edit_pokemon_path(pokemon), class: 'font-weight-bold h4 mr-3' %>
           <% if pokemon.type_1 %>
             <img class="rounded" src=<%= "/types/#{pokemon.type_1.image}" %> alt="Type" width="40px" height="40px">
